@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Turiknox_SLog
+
+ * @category   Turiknox
+ * @package    Turiknox_SLog
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/Turiknox/magento2-slog/blob/master/LICENSE.md
+ * @version    1.0.0
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Turiknox_SLog::slog_viewed" title="Turiknox SLog" translate="title" sortOrder="1000">
+                    <resource id="Turiknox_SLog::visitors" title="Visitors" translate="title" sortOrder="10" />
+                    <resource id="Turiknox_SLog::products" title="Products Viewed" translate="title" sortOrder="20" />
+                    <resource id="Turiknox_SLog::categories" title="Categories Viewed" translate="title" sortOrder="30" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

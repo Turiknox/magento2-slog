@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Turiknox_SLog
+
+ * @category   Turiknox
+ * @package    Turiknox_SLog
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/Turiknox/magento2-slog/blob/master/LICENSE.md
+ * @version    1.0.0
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Turiknox_SLog::slog_viewed"
+             title="Turiknox SLog"
+             translate="title"
+             module="Turiknox_SLog"
+             sortOrder="100"
+             parent="Magento_Backend::marketing"
+             resource="Turiknox_SLog::slog_viewed"
+        />
+        <add id="Turiknox_SLog::visitors"
+             title="Visitors"
+             translate="title"
+             module="Turiknox_SLog"
+             sortOrder="10" parent="Turiknox_SLog::slog_viewed"
+             action="slog/visitors"
+             resource="Turiknox_SLog::visitors"
+        />
+        <add id="Turiknox_SLog::products_viewed"
+             title="Products Viewed"
+             translate="title"
+             module="Turiknox_SLog"
+             sortOrder="10" parent="Turiknox_SLog::slog_viewed"
+             action="slog/products"
+             resource="Turiknox_SLog::products_viewed"
+        />
+        <add id="Turiknox_SLog::categories_viewed"
+             title="Categories Viewed"
+             translate="title"
+             module="Turiknox_SLog"
+             sortOrder="10" parent="Turiknox_SLog::slog_viewed"
+             action="slog/categories"
+             resource="Turiknox_SLog::categories"
+        />
+    </menu>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Turiknox_SLog
+
+ * @category   Turiknox
+ * @package    Turiknox_SLog
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/Turiknox/magento2-slog/blob/master/LICENSE.md
+ * @version    1.0.0
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Turiknox\SLog\Api\VisitorRepositoryInterface" type="Turiknox\SLog\Model\VisitorRepository" />
+    <preference for="Turiknox\SLog\Api\Data\VisitorInterface" type="Turiknox\SLog\Model\Visitor" />
+
+    <preference for="Turiknox\SLog\Api\ProductRepositoryInterface" type="Turiknox\SLog\Model\ProductRepository" />
+    <preference for="Turiknox\SLog\Api\Data\ProductInterface" type="Turiknox\SLog\Model\Product" />
+
+    <preference for="Turiknox\SLog\Api\CategoryRepositoryInterface" type="Turiknox\SLog\Model\CategoryRepository" />
+    <preference for="Turiknox\SLog\Api\Data\CategoryInterface" type="Turiknox\SLog\Model\Category" />
+</config>

@@ -10,4 +10,39 @@
  */
 namespace Turiknox\SLog\Api;
 
-interface VisitorRepositoryInterface {}
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Turiknox\SLog\Api\Data\VisitorInterface;
+
+interface VisitorRepositoryInterface
+{
+    /**
+     * @param VisitorInterface $entity
+     * @return VisitorInterface interface
+     */
+    public function save(VisitorInterface $entity);
+
+    /**
+     * @param $id
+     * @return VisitorInterface interface
+     */
+    public function getById($id);
+
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return \Turiknox\SLog\Api\Data\VisitorSearchResultInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getList(SearchCriteriaInterface $searchCriteria);
+
+    /**
+     * @param VisitorInterface $entity
+     * @return bool
+     */
+    public function delete(VisitorInterface $entity);
+
+    /**
+     * @param $entity
+     * @return VisitorInterface interface
+     */
+    public function deleteById($entity);
+}

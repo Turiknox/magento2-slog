@@ -10,4 +10,39 @@
  */
 namespace Turiknox\SLog\Api;
 
-interface CategoryRepositoryInterface {}
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Turiknox\SLog\Api\Data\CategoryInterface;
+
+interface CategoryRepositoryInterface
+{
+    /**
+     * @param CategoryInterface $entity
+     * @return CategoryInterface interface
+     */
+    public function save(CategoryInterface $entity);
+
+    /**
+     * @param $id
+     * @return CategoryInterface interface
+     */
+    public function getById($id);
+
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return \Turiknox\SLog\Api\Data\CategorySearchResultInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getList(SearchCriteriaInterface $searchCriteria);
+
+    /**
+     * @param CategoryInterface $entity
+     * @return bool
+     */
+    public function delete(CategoryInterface $entity);
+
+    /**
+     * @param $entity
+     * @return CategoryInterface interface
+     */
+    public function deleteById($entity);
+}

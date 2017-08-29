@@ -42,7 +42,7 @@
              module="Turiknox_SLog"
              sortOrder="10" parent="Turiknox_SLog::slog_viewed"
              action="slog/categories"
-             resource="Turiknox_SLog::categories"
+             resource="Turiknox_SLog::categories_viewed"
         />
     </menu>
 </config>

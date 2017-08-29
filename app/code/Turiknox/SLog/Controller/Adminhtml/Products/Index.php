@@ -15,10 +15,14 @@ use Turiknox\SLog\Controller\Adminhtml\AbstractController;
 class Index extends AbstractController
 {
     /**
-     * @return \Magento\Framework\View\Result\Page
+     * @return \Magento\Backend\Model\View\Result\Page $resultPage
      */
     public function execute()
     {
-        return $this->_resultPageFactory->create();
+        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        $resultPage = $this->_resultPageFactory->create();
+        $this->_setActiveMenu('Turiknox_SLog::products_viewed');
+        $this->_view->getPage()->getConfig()->getTitle()->prepend(__('Products Viewed'));
+        return $resultPage;
     }
 }

@@ -1,5 +1,4 @@
 <?php
-namespace Turiknox\SLog\Model\ResourceModel;
 /*
  * Turiknox_SLog
 
@@ -9,6 +8,8 @@ namespace Turiknox\SLog\Model\ResourceModel;
  * @license    https://github.com/Turiknox/magento2-slog/blob/master/LICENSE.md
  * @version    1.0.0
  */
+namespace Turiknox\SLog\Model\ResourceModel;
+
 use Magento\Framework\Model\ResourceModel\Db\Context;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 

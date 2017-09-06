@@ -51,13 +51,6 @@ class InstallSchema implements InstallSchemaInterface
                     'Customer ID'
                 )
                 ->addColumn(
-                    'customer_email',
-                    Table::TYPE_TEXT,
-                    255,
-                    [],
-                    'Customer Email'
-                )
-                ->addColumn(
                     'customer_ip',
                     Table::TYPE_TEXT,
                     255,
@@ -69,7 +62,7 @@ class InstallSchema implements InstallSchemaInterface
                     Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false],
-                    'Last Visit Time'
+                    'Last Visit At'
                 )
                 ->addIndex(
                     $installer->getIdxName(
@@ -97,7 +90,7 @@ class InstallSchema implements InstallSchemaInterface
                     'slog_visitor_id',
                     Table::TYPE_BIGINT,
                     null,
-                    ['unsigned' => true],
+                    ['unsigned' => true, 'nullable' => false],
                     'Visitor ID'
                 )
                 ->addColumn(
@@ -106,6 +99,27 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     ['unsigned' => true, 'nullable' => false],
                     'Product ID'
+                )
+                ->addColumn(
+                    'store_id',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['unsigned' => true, 'nullable' => false, 'default' => '0'],
+                    'Store ID'
+                )
+                ->addColumn(
+                    'view_count',
+                    Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => false, 'default' => '0'],
+                    'Product ID'
+                )
+                ->addColumn(
+                    'has_ordered',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['nullable' => false, 'default' => '0'],
+                    'Has Ordered?'
                 )
                 ->addColumn(
                     'created_at',
@@ -152,7 +166,7 @@ class InstallSchema implements InstallSchemaInterface
                     'slog_visitor_id',
                     Table::TYPE_BIGINT,
                     null,
-                    ['unsigned' => true],
+                    ['unsigned' => true, 'nullable' => false],
                     'Visitor ID'
                 )
                 ->addColumn(
@@ -161,6 +175,27 @@ class InstallSchema implements InstallSchemaInterface
                     null,
                     ['unsigned' => true, 'nullable' => false],
                     'Category ID'
+                )
+                ->addColumn(
+                    'store_id',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['unsigned' => true, 'nullable' => false, 'default' => '0'],
+                    'Store ID'
+                )
+                ->addColumn(
+                    'view_count',
+                    Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => false, 'default' => '0'],
+                    'Product ID'
+                )
+                ->addColumn(
+                    'has_ordered',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['nullable' => false, 'default' => '0'],
+                    'Has Ordered?'
                 )
                 ->addColumn(
                     'created_at',
@@ -191,6 +226,63 @@ class InstallSchema implements InstallSchemaInterface
                     Table::ACTION_CASCADE
                 );
             $installer->getConnection()->createTable($categoryTable);
+        }
+
+        if (!$installer->tableExists('slog_customer_aggregated')) {
+            $aggregatedTable = $installer->getConnection()
+                ->newTable($installer->getTable('slog_customer_aggregated'))
+                ->addColumn(
+                    'entity_id',
+                    Table::TYPE_BIGINT,
+                    null,
+                    ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
+                    'Entity ID'
+                )
+                ->addColumn(
+                    'slog_visitor_id',
+                    Table::TYPE_BIGINT,
+                    null,
+                    ['unsigned' => true],
+                    'Visitor ID'
+                )
+                ->addColumn(
+                    'customer_name',
+                    Table::TYPE_TEXT,
+                    255,
+                    [],
+                    'Customer Name'
+                )
+                ->addColumn(
+                    'customer_email',
+                    Table::TYPE_TEXT,
+                    255,
+                    [],
+                    'Customer Email'
+                )
+                ->addColumn(
+                    'email_sent',
+                    Table::TYPE_SMALLINT,
+                    null,
+                    ['nullable' => false, 'default' => '0'],
+                    'Email Sent?'
+                )
+                ->addColumn(
+                    'date_aggregated',
+                    Table::TYPE_TIMESTAMP,
+                    null,
+                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
+                    'Date Aggregated'
+                )
+                ->addIndex(
+                    $installer->getIdxName(
+                        'slog_customer_aggregated',
+                        ['entity_id'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+                    ),
+                    ['entity_id'],
+                    ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
+                );
+            $installer->getConnection()->createTable($aggregatedTable);
         }
     }
 }

@@ -1,5 +1,4 @@
 <?php
-namespace Turiknox\SLog\Model;
 /*
  * Turiknox_SLog
 
@@ -9,11 +8,12 @@ namespace Turiknox\SLog\Model;
  * @license    https://github.com/Turiknox/magento2-slog/blob/master/LICENSE.md
  * @version    1.0.0
  */
+namespace Turiknox\SLog\Model;
+
 use Magento\Framework\Model\AbstractModel;
 use Turiknox\SLog\Api\Data\VisitorInterface;
 
-class Visitor extends AbstractModel
-    implements VisitorInterface
+class Visitor extends AbstractModel implements VisitorInterface
 {
 
     /**
@@ -57,16 +57,6 @@ class Visitor extends AbstractModel
     public function getCustomerId()
     {
         return $this->getData(VisitorInterface::CUSTOMER_ID);
-    }
-
-    /**
-     * Get Customer Email
-     *
-     * @return string
-     */
-    public function getCustomerEmail()
-    {
-        return $this->getData(VisitorInterface::CUSTOMER_EMAIL);
     }
 
     /**

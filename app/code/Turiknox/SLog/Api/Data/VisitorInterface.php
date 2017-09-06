@@ -15,7 +15,6 @@ interface VisitorInterface
     const ENTITY_ID       = 'entity_id';
     const VISITOR_ID      = 'visitor_id';
     const CUSTOMER_ID     = 'customer_id';
-    const CUSTOMER_EMAIL  = 'customer_email';
     const CUSTOMER_IP     = 'customer_ip';
     const LAST_VISIT_AT   = 'last_visit_at';
 
@@ -29,23 +28,16 @@ interface VisitorInterface
     /**
      * Get Visitor ID
      *
-     * @return int
+     * @return int|null
      */
     public function getVisitorId();
 
     /**
      * Get Customer ID
      *
-     * @return int
+     * @return int|null
      */
     public function getCustomerId();
-
-    /**
-     * Get Customer Email
-     *
-     * @return string
-     */
-    public function getCustomerEmail();
 
     /**
      * Get Customer IP

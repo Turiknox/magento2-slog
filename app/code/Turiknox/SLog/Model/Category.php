@@ -1,5 +1,4 @@
 <?php
-namespace Turiknox\SLog\Model;
 /*
  * Turiknox_SLog
 
@@ -9,11 +8,12 @@ namespace Turiknox\SLog\Model;
  * @license    https://github.com/Turiknox/magento2-slog/blob/master/LICENSE.md
  * @version    1.0.0
  */
+namespace Turiknox\SLog\Model;
+
 use Magento\Framework\Model\AbstractModel;
 use Turiknox\SLog\Api\Data\CategoryInterface;
 
-class Category extends AbstractModel
-    implements CategoryInterface
+class Category extends AbstractModel implements CategoryInterface
 {
 
     /**
@@ -23,9 +23,11 @@ class Category extends AbstractModel
 
     /**
      * Initialise resource model
+     * @codingStandardsIgnoreStart
      */
     protected function _construct()
     {
+        // @codingStandardsIgnoreEnd
         $this->_init('Turiknox\SLog\Model\ResourceModel\Category');
     }
 
@@ -42,7 +44,7 @@ class Category extends AbstractModel
     /**
      * Get SLog Visitor ID
      *
-     * @return int
+     * @return int|null
      */
     public function getSlogVisitorId()
     {
@@ -52,11 +54,41 @@ class Category extends AbstractModel
     /**
      * Get Category ID
      *
-     * @return string
+     * @return int|null
      */
     public function getCategoryId()
     {
         return $this->getData(CategoryInterface::CATEGORY_ID);
+    }
+
+    /**
+     * Get Store ID
+     *
+     * @return int
+     */
+    public function getStoreId()
+    {
+        return $this->getData(CategoryInterface::STORE_ID);
+    }
+
+    /**
+     * Get Has Ordered
+     *
+     * @return bool
+     */
+    public function getHasOrdered()
+    {
+        return $this->getData(CategoryInterface::HAS_ORDERED);
+    }
+
+    /**
+     * Get View Count
+     *
+     * @return bool
+     */
+    public function getViewCount()
+    {
+        return $this->getData(CategoryInterface::VIEW_COUNT);
     }
 
     /**

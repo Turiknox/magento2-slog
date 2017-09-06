@@ -14,7 +14,10 @@ interface ProductInterface
 {
     const ENTITY_ID         = 'entity_id';
     const SLOG_VISITOR_ID   = 'slog_visitor_id';
-    const PRODUCT_ID        = 'category_id';
+    const PRODUCT_ID        = 'product_id';
+    const STORE_ID          = 'store_id';
+    const VIEW_COUNT        = 'view_count';
+    const HAS_ORDERED       = 'has_ordered';
     const CREATED_AT        = 'created_at';
 
     /**
@@ -27,16 +30,37 @@ interface ProductInterface
     /**
      * Get SLog Visitor ID
      *
-     * @return string
+     * @return int|null
      */
     public function getSlogVisitorId();
 
     /**
-     * Get Product ID
+     * Get Category ID
      *
-     * @return mixed
+     * @return int|null
      */
     public function getProductId();
+
+    /**
+     * Get Store ID
+     *
+     * @return int
+     */
+    public function getStoreId();
+
+    /**
+     * Get View Count
+     *
+     * @return int
+     */
+    public function getViewCount();
+
+    /**
+     * Get Has Ordered
+     *
+     * @return bool
+     */
+    public function getHasOrdered();
 
     /**
      * Get created at
